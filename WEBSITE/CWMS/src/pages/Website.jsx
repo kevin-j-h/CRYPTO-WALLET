@@ -11,9 +11,10 @@ function Website() {
       </header>
 
 
+
       <section className="hero">
-        <h2>Welcome Leo</h2>
-        <p>Your secure Cryptocurrency Wallet Is Active.</p>
+        <h2>Welcome MR.X</h2>
+        <p>Cryptocurrency Wallet Is Active.</p>
         <br></br>
         <a href="#" className="cta-button">WALLET ID</a>
       </section>
