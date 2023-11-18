@@ -23,18 +23,23 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formattedDateOfBirth = formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString().split('T')[0] : null;
+    const formattedPincode = Number(formData.pincode);
+    const formattedPhoneNo = Number(formData.phoneNumber);
+
     try {
       const { data, error } = await supabase.from('user').insert([
         {
-          userid: 'sample-uuid-generated-on-the-client-side',
+          userid: supabase.auth.user().id,
           firstname: formData.firstName,
           lastname: formData.lastName,
-          dateofbirth: formData.dateOfBirth,
-          phoneno: formData.phoneNumber,
+          dateofbirth: formData.formattedDateOfBirth,
+          phoneno: formData.formattedPhoneNo,
           address: formData.address,
           country: formData.country,
           state: formData.state,
-          pincode: formData.pincode,
+          pincode: formData.formattedPincode,
         },
       ]);
       if (error) {
