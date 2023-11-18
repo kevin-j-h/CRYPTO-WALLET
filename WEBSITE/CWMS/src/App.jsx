@@ -2,7 +2,8 @@ import React from 'react'
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 
 //pages
-import Website from './pages/login'
+import Login from './pages/login'
+import Website from './pages/website'
 import Signup from './pages/signup'
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Website />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         </Routes>
       

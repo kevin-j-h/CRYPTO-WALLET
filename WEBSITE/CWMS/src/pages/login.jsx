@@ -3,7 +3,7 @@ import React from 'react'
 
 //components
 import LoginComponent from '../components/LoginComponent'; // Import your LoginComponent
-const website = () => {
+const login = () => {
   return (
     <div>
       <h1>Login</h1>
@@ -15,4 +15,4 @@ const website = () => {
   )
 }
 
-export default website
+export default login
