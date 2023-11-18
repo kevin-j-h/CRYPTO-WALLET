@@ -5,6 +5,9 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     dateOfBirth: '',
     phoneNumber: '',
     address: '',
@@ -27,13 +30,21 @@ const Signup = () => {
     const formattedDateOfBirth = formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString().split('T')[0] : null;
     const formattedPincode = Number(formData.pincode);
     const formattedPhoneNo = Number(formData.phoneNumber);
+   
+    if (formData.password !== formData.confirmPassword) {
+      console.error('Passwords do not match');
+      return;
+    }
 
     try {
       const { data, error } = await supabase.from('user').insert([
         {
-          userid: supabase.auth.user().id,
+          userid: supabase.auth.getUser().id,
           firstname: formData.firstName,
           lastname: formData.lastName,
+          email: formData.email,
+          password: formData.password,
+          confirmPassword: '',
           dateofbirth: formData.formattedDateOfBirth,
           phoneno: formData.formattedPhoneNo,
           address: formData.address,
@@ -50,6 +61,9 @@ const Signup = () => {
       setFormData({
         firstName: '',
         lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
         dateOfBirth: '',
         phoneNumber: '',
         address: '',
@@ -85,6 +99,36 @@ const Signup = () => {
             onChange={handleChange}
           />
         </label>
+        <label>
+    Email:
+    <input
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+      required
+    />
+  </label>
+  <label>
+    Password:
+    <input
+      type="password"
+      name="password"
+      value={formData.password}
+      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+      required
+    />
+  </label>
+  <label>
+    Confirm Password:
+    <input
+      type="password"
+      name="confirmPassword"
+      value={formData.confirmPassword}
+      onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+      required
+    />
+  </label>
         <label>
           Date of Birth:
           <input
