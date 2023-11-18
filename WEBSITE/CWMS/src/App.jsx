@@ -7,7 +7,6 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Website from './pages/website';
 import Login from './pages/login';
 import Signup from './pages/signup'
-import Home from './pages/Home'
 import Watchlist from './pages/Watchlist'
 import Transactions from './pages/Transactions'
 import Wallet from './pages/Wallet'
@@ -26,7 +25,6 @@ const App = () => {
         <Route path='/watchlist' element={<Watchlist />} />
         <Route path='/wallet' element={<Wallet />} />
         <Route path='/settings' element={<Settings />} />
-        <Route path='/home' element={<Home />} />
         
       </Routes>
     
