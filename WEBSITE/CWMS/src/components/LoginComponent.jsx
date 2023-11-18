@@ -1,51 +1,34 @@
 // LoginComponent.jsx
-import React, { useState } from 'react';
-import { supabase } from '../config/supabaseClient'; // Import Supabase client
-import { Link } from 'react-router-dom'; // If using React Router for navigation
+import React from 'react';
+import { Auth, ThemeSupa } from '@supabase/auth-ui-react';
+import { supabase } from '../config/supabaseClient';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 
 const LoginComponent = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
-    try {
-      const { user, error } = await supabase.auth.signIn({ email, password });
+  const navigate = useNavigate(); // Add parentheses to useNavigate()
 
-      if (error) {
-        // Handle login error (display error message, etc.)
-        console.error('Error signing in:', error.message);
-        return;
-      }
-
-      // Handle successful login
-      console.log('Logged in successfully:', user);
-    } catch (error) {
-      // Handle other errors
-      console.error('Error:', error.message);
+  supabase.auth.onAuthStateChange(async (event) => {
+    if (event !== 'SIGNOUT') {
+      navigate('/home');
+    } else {
+      navigate('/');
     }
-  };
-
-  return (
+  });
+  
+  return(
     <div>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+      <h1>Login</h1>
+      <Auth 
+      supabaseClient={supabase}
+      appearance={{theme: ThemeSupa}}
+      theme="dark"
+      providers={["google"]}
       />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      <p>
-        Don't have an account? <Link to="/signup">Signup</Link> {/* Redirect to signup page */}
-      </p>
     </div>
   );
-};
+  }
+ 
 
 export default LoginComponent;

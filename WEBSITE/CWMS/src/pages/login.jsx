@@ -10,7 +10,7 @@ const login = () => {
       <LoginComponent />
       
       
-      
+  
     </div>
   )
 }
