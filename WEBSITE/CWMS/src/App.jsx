@@ -35,9 +35,9 @@ const App = () => {
         <Route path='/settings' element={<Settings />} />
         <Route path="/buysell" element={<CryptoBuySell />} />
         <Route path="/sendreceive" element={<SendReceiveCrypto />} />
-        <Route path="/tradingview" element={<TradingViewWidget />} />
+        {/* <Route path="/tradingview" element={<TradingViewWidget />} />
         <Route path="/marquee" element={<CryptoMarquee />} />
-        <Route path="/table" element={<CryptoTable />} />
+        <Route path="/table" element={<CryptoTable />} /> */}
         <Route path="/searchcrypto" element={<SearchCrypto />} />
       </Routes>
     
