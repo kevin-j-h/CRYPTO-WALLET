@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
+import '../styles/crypto.css'; // Make sure to replace 'your-stylesheet.css' with the actual name of your stylesheet
 
 const LiveCoinWatchWidget = () => {
   useEffect(() => {
@@ -20,7 +21,7 @@ const LiveCoinWatchWidget = () => {
       lcw-d-icon={true}
       lcw-color-tx="#ffffff"
       lcw-color-bg="#1f2434"
-      lcw-border-w="1"
+      lcw-border-w="7"
     ></div>
   );
 };
