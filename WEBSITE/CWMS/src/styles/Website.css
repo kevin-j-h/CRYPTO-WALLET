@@ -70,15 +70,15 @@ body {
 /* Style for the card */
 .card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 10px;  
   padding: 20px;
   margin: 20px 0;
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Style for the buttons */
