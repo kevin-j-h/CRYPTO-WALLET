@@ -9,7 +9,6 @@ import Dashboard from '../pages/Dashboard'
 function Website() {
   return (
     <div className="website-container">
-      
       <header className="header">
         <div className="logo">
           <h1>Crypto X</h1>

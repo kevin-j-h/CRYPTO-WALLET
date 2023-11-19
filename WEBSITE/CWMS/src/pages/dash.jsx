@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Dashboard = () => {
+const Dash = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -19,4 +19,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dash;
