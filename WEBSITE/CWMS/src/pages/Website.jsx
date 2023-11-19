@@ -4,10 +4,12 @@ import '../styles/Website.css';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 // import SearchComponent from './Search';
+import Dashboard from '../pages/Dashboard'
 
 function Website() {
   return (
     <div className="website-container">
+      
       <header className="header">
         <div className="logo">
           <h1>Crypto X</h1>
@@ -15,15 +17,8 @@ function Website() {
         </div>
       </header>
 
-      <section className="hero">
-        <div className='card'>
-          <h2>Welcome MR.X</h2>
-          <p>Cryptocurrency Wallet Is Active.</p>
-          <br></br>
-          <a href="#" className="cta-button">WALLET ID</a>
-        </div>
-      </section>
-
+      
+      <Dashboard />
       <section className="wallet">
         <div className='card'>
           <h2>Your Wallet</h2>

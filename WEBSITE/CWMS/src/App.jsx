@@ -4,14 +4,14 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 
 //pages
-import Website from './pages/website';
+import Website from './pages/Website';
 import Login from './pages/login';
 import Signup from './pages/signup'
 import Watchlist from './pages/Watchlist'
 import Transactions from './pages/Transactions'
 import Wallet from './pages/Wallet'
 import Settings from './pages/Settings'
-import Dash from './pages/dash'
+import Dashboard from './pages/Dashboard'
 import CryptoBuySell from './pages/BuySell';
 import SendReceiveCrypto from './pages/Send';
 import TradingViewWidget from './pages/BitcoinAnalysis';
@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/" element={<Website />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<Signup />}/>
-        <Route path="/dash" element={<Dash />}/>
+        <Route path="/dashboard" element={<Dashboard />}/>
         <Route path='/transactions' element={<Transactions />} />
         <Route path='/watchlist' element={<Watchlist />} />
         <Route path='/wallet' element={<Wallet />} />
