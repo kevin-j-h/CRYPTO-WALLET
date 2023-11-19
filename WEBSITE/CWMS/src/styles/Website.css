@@ -44,3 +44,18 @@
   text-align: center;
   padding: 20px;
 }
+
+.crypto-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wallet-info {
+  margin-bottom: 10px;
+}
+
+.wallet-actions a {
+  margin-right: 10px;
+}
+
+/* Add any additional styling based on your design requirements */
