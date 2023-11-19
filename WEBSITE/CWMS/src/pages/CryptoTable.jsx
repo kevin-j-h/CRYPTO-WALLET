@@ -12,7 +12,8 @@ const LiveCoinWatchWidget = () => {
 
   return (
 <div class="cryptohopper-web-widget" data-id="1" data-chart_color="#000000" data-numcoins="100" data-realtime="on"></div>
-  );
+ /*changes*/
+ );
 };
 
 export default LiveCoinWatchWidget;
