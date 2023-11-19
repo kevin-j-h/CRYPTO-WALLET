@@ -36,6 +36,20 @@ function Website() {
         <a href="#" className="cta-button">WALLET ID</a>
       </section>
 
+      <section className="wallet">
+        <h2>Your Wallet</h2>
+        <div className="wallet-info">
+          <p><strong>Balance:</strong> 0.00 BTC</p>
+          <p><strong>Address:</strong> Your Wallet Address</p>
+        </div>
+        <div className="wallet-actions">
+          <a href="#" className="cta-button">Send BTC</a>
+          <a href="#" className="cta-button">Receive BTC</a>
+        </div>
+        <br></br>
+        <a href="#" className="view-button">View</a>
+      </section>
+
       <section className="search">
         <h2>Search for Cryptocurrencies</h2>
         <form className="search-form">
@@ -69,28 +83,16 @@ function Website() {
 
       <section className="watchlist">
         <h2>Your Watchlist</h2>
-        <h4>watchlist1</h4>
-        <h4>watchlist2</h4>
-        <h4>watchlist3</h4>
-        <h4>watchlist4</h4>
-        <h4>watchlist5</h4>
+        <h4>watchlist icon</h4>
+        <h4>watchlist icon</h4>
+        <h4>watchlist icon</h4>
+
+
         <br></br>
         <a href="#" className="view-button">View</a>
       </section>
 
-      <section className="wallet">
-        <h2>Your Wallet</h2>
-        <div className="wallet-info">
-          <p><strong>Balance:</strong> 0.00 BTC</p>
-          <p><strong>Address:</strong> Your Wallet Address</p>
-        </div>
-        <div className="wallet-actions">
-          <a href="#" className="cta-button">Send BTC</a>
-          <a href="#" className="cta-button">Receive BTC</a>
-        </div>
-        <br></br>
-        <a href="#" className="view-button">View</a>
-      </section>
+    
 
       <footer className="footer">
         <p>Crypto Wallet</p>

@@ -1,6 +1,6 @@
   .navbar {
     display: flex;
-    justify-content: flex-end; /* Align the navbar links to the right */
+    justify-content: flex-end; 
     background-color: #000000;
     padding: 10px;
   }
@@ -13,7 +13,7 @@
   }
 
   .nav-links li {
-    margin-right: 20px; /* Add some spacing between nav links */
+    margin-right: 20px;
   }
 
   .nav-links a {
@@ -25,7 +25,7 @@
   .search,
   .buy-sell {
     text-align: center;
-    padding: 200px; /* Increase padding for better spacing */
+    padding: 200px; 
   }
 
   .crypto-list {
@@ -50,12 +50,12 @@
   margin-right: 10px;
 }
 
-/* Add or adjust styles for the new sections */
+
 .transactions,
 .watchlist,
 .wallet {
   text-align: center;
-  padding: 20px;
+  padding: 200px;
 }
 
 .crypto-list {
@@ -71,4 +71,3 @@
   margin-right: 10px;
 }
 
-/* Add any additional styling based on your design requirements */
