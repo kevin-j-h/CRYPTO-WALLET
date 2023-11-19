@@ -5,23 +5,13 @@ import React, { useEffect } from 'react';
 const LiveCoinWatchWidget = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://www.livecoinwatch.com/static/lcw-widget.js';
+    script.src = 'https://www.cryptohopper.com/widgets/js/script';
     script.defer = true;
     document.body.appendChild(script);
   }, []);
 
   return (
-    <div
-      className="livecoinwatch-widget-3"
-      lcw-base="USD"
-      lcw-d-head={true}
-      lcw-d-name={true}
-      lcw-d-code={true}
-      lcw-d-icon={true}
-      lcw-color-tx="#ffffff"
-      lcw-color-bg="#1f2434"
-      lcw-border-w="1"
-    ></div>
+<div class="cryptohopper-web-widget" data-id="1" data-chart_color="#000000" data-numcoins="100" data-realtime="on"></div>
   );
 };
 
