@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {supabase} from '../config/supabaseClient'
 
 function SignInForm() {
+  const navigate =useNavigate();
+
   const [state, setState] = useState({
     email: '',
     password: ''
@@ -14,12 +18,28 @@ function SignInForm() {
     });
   };
 
-  const handleOnSubmit = (evt) => {
+  const handleOnSubmit = async (evt) => {
     evt.preventDefault();
 
     const { email, password } = state;
-    alert(`You are logging in with email: ${email} and password: ${password}`);
 
+    try {
+      const { user, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Sign-in successful, you can redirect to Dashboard or perform necessary actions
+      console.log('Sign-in successful:', user);
+      navigate("/dash"); // Redirect to dashboard upon successful login
+    } catch (error) {
+      console.error('Error signing in:', error.message);
+      // Handle error, display error message, etc.
+    }
     for (const key in state) {
       setState({
         ...state,
@@ -43,7 +63,7 @@ function SignInForm() {
             <i className="fab fa-linkedin-in" />
           </a>
         </div>
-        <span>or use your account</span>
+        <span >or use your account</span>
         <input
           type="email"
           placeholder="Email"

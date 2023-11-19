@@ -6,7 +6,6 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 //pages
 import Website from './pages/website';
 import Login from './pages/login';
-
 import Watchlist from './pages/Watchlist'
 import Transactions from './pages/Transactions'
 import Wallet from './pages/Wallet'
