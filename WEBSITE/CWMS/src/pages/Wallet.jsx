@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Wallet() {
   return (
@@ -12,7 +13,7 @@ function Wallet() {
           <p><strong>Address:</strong> Your Wallet Address</p>
         </div>
         <div className="wallet-actions">
-          <a href="#" className="cta-button">Send BTC</a>
+        <Link to="/sendreceive" className="cta-button">Send BTC</Link>
           <a href="#" className="cta-button">Receive BTC</a>
         </div>
         <br></br>

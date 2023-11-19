@@ -12,6 +12,13 @@ import Transactions from './pages/Transactions'
 import Wallet from './pages/Wallet'
 import Settings from './pages/Settings'
 import Dash from './pages/dash'
+import CryptoBuySell from './pages/BuySell';
+import SendReceiveCrypto from './pages/Send';
+import TradingViewWidget from './pages/BitcoinAnalysis';
+import CryptoMarquee from './pages/CryptoMarquee';
+import CryptoTable from './pages/CryptoTable';
+import SearchCrypto from './pages/SearchCrypto';
+
 const App = () => {
   return (
     
@@ -26,7 +33,12 @@ const App = () => {
         <Route path='/watchlist' element={<Watchlist />} />
         <Route path='/wallet' element={<Wallet />} />
         <Route path='/settings' element={<Settings />} />
-        
+        <Route path="/buysell" element={<CryptoBuySell />} />
+        <Route path="/sendreceive" element={<SendReceiveCrypto />} />
+        <Route path="/tradingview" element={<TradingViewWidget />} />
+        <Route path="/marquee" element={<CryptoMarquee />} />
+        <Route path="/table" element={<CryptoTable />} />
+        <Route path="/searchcrypto" element={<SearchCrypto />} />
       </Routes>
     
     </BrowserRouter>

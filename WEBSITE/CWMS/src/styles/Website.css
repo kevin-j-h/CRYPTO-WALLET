@@ -96,3 +96,97 @@ body {
 .view-button:hover {
   background-color: #702c91;
 }
+
+.buysell {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buysell h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.buysell-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buysell-list div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.buysell-list button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.buysell-list button:hover {
+  background-color: #45a049;
+}
+
+/* CSS for SendReceiveCrypto */
+.send-receive-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.send-receive-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+select,
+input[type="text"],
+input[type="number"],
+button[type="submit"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 250px;
+}
+
+input[type="text"] {
+  width: 250px;
+}
+
+input[type="number"] {
+  width: 150px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
