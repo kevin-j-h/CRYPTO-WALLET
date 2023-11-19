@@ -18,9 +18,12 @@
 
   .nav-links a {
     text-decoration: none;
-    color: white;
+    color: rgb(232, 232, 232);
   }
-
+  .logo {
+    text-align: center;
+    padding: 10px;
+  }
   .hero,
   .search,
   .buy-sell {
