@@ -1,5 +1,8 @@
 /* Add this CSS to your stylesheet or style tag */
-.livecoinwatch-widget-3 {
-    width: 100vw;
+.livecoinwatch-widget-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Optional: Adjust the height as needed */
+
   }
-  

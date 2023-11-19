@@ -4,7 +4,7 @@ import CryptoBuyTable from './CryptoBuyTable';
 function CryptoBuySell() {
   const [action, setAction] = useState('');
   const [crypto, setCrypto] = useState('');
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState(''); 
 
   const handleCryptoChange = (event) => {
     setCrypto(event.target.value);

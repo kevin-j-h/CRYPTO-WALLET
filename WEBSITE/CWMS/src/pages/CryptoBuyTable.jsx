@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
+import '../styles/crypto.css';
 
 const CryptoBuyTable = () => {
   useEffect(() => {
@@ -11,7 +12,19 @@ const CryptoBuyTable = () => {
   }, []);
 
   return (
-<div class="livecoinwatch-widget-3" lcw-base="USD" lcw-d-head="true" lcw-d-name="true" lcw-d-code="true" lcw-d-icon="true" lcw-color-tx="#ffffff" lcw-color-bg="#1f2434" lcw-border-w="1" ></div>
+    <div class="livecoinwatch-widget-container">
+      <div
+        class="livecoinwatch-widget-3"
+        lcw-base="USD"
+        lcw-d-head="true"
+        lcw-d-name="true"
+        lcw-d-code="true"
+        lcw-d-icon="true"
+        lcw-color-tx="#000000"
+        lcw-color-bg="#ffffff"
+        lcw-border-w="20"
+        style={{ width: '100%' }}
+      ></div>    </div>
   );
 };
 
