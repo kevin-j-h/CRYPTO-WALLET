@@ -1,0 +1,39 @@
+  .navbar {
+    display: flex;
+    justify-content: flex-end; /* Align the navbar links to the right */
+    background-color: #000000;
+    padding: 10px;
+  }
+
+  .nav-links {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links li {
+    margin-right: 20px; /* Add some spacing between nav links */
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .hero,
+  .search,
+  .buy-sell {
+    text-align: center;
+    padding: 40px; /* Increase padding for better spacing */
+  }
+
+  .crypto-list {
+    justify-content: space-around;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px;
+  }
+
