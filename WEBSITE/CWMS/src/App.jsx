@@ -14,6 +14,7 @@ import Settings from './pages/Settings'
 import Dash from './pages/dash'
 const App = () => {
   return (
+    
     <BrowserRouter>
       <Routes>
 
