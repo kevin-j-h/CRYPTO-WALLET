@@ -6,7 +6,6 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 //pages
 import Website from './pages/Website';
 import Login from './pages/login';
-import Signup from './pages/signup'
 import Watchlist from './pages/Watchlist'
 import Transactions from './pages/Transactions'
 import Wallet from './pages/Wallet'
@@ -29,6 +28,7 @@ const App = () => {
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/dash" element={<Dash />}/>
         <Route path='/transactions' element={<Transactions />} />
         <Route path='/watchlist' element={<Watchlist />} />
         <Route path='/wallet' element={<Wallet />} />

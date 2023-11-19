@@ -3,15 +3,18 @@ import SignInForm from '../components/signinform';
 import SignUpForm from '../components/signupform';
 import '../styles/login.css';
 
+
 const Login = () => {
+ 
   const [type, setType] = useState('signIn');
 
   const handleOnClick = (text) => {
     if (text !== type) {
       setType(text);
+      }
       return;
     }
-  };
+  
 
   const containerClass = `container ${type === 'signUp' ? 'right-panel-active' : ''}`;
 
@@ -43,5 +46,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
