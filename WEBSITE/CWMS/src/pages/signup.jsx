@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../config/supabaseClient'; // Import your Supabase client
-import '../styles/signup.css'
+
 const Signup = () => {
   const [formData, setFormData] = useState({
     firstName: '',

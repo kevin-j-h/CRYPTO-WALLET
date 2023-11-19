@@ -14,6 +14,7 @@ import Dash from './pages/dash'
 
 const App = () => {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Website />}/>
