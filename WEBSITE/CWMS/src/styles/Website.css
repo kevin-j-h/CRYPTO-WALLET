@@ -36,15 +36,7 @@
     text-align: center;
     padding: 5px;
   }
-
-/* Add or adjust styles for the new sections */
-.transactions,
-.watchlist,
-.wallet {
-  text-align: center;
-  padding: 20px;
-}
-
+  
 .crypto-list {
   display: flex;
   justify-content: space-around;
