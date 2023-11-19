@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import CryptoTable from './CryptoTable';
-
+import CryptoBuyTable from './CryptoBuyTable';
 function CryptoBuySell() {
   const [action, setAction] = useState('');
   const [crypto, setCrypto] = useState('');
@@ -27,7 +26,7 @@ function CryptoBuySell() {
   return (
     <section className="buysell">
       <h1>Buy/Sell Cryptocurrencies</h1>
-      <CryptoTable />
+      <CryptoBuyTable />
       <div className="buysell-list">
         <div className='crypto1'>
           <p>{crypto}</p>

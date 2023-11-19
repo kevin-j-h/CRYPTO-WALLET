@@ -13,9 +13,8 @@ import Settings from './pages/Settings'
 import Dashboard from './pages/Dashboard'
 import CryptoBuySell from './pages/BuySell';
 import SendReceiveCrypto from './pages/Send';
-import TradingViewWidget from './pages/BitcoinAnalysis';
 import CryptoMarquee from './pages/CryptoMarquee';
-import CryptoTable from './pages/CryptoTable';
+import LiveCoinWatchWidget from './pages/CryptoTable';
 import SearchCrypto from './pages/SearchCrypto';
 
 const App = () => {
@@ -35,9 +34,8 @@ const App = () => {
         <Route path='/settings' element={<Settings />} />
         <Route path="/buysell" element={<CryptoBuySell />} />
         <Route path="/sendreceive" element={<SendReceiveCrypto />} />
-        {/* <Route path="/tradingview" element={<TradingViewWidget />} />
         <Route path="/marquee" element={<CryptoMarquee />} />
-        <Route path="/table" element={<CryptoTable />} /> */}
+        <Route path="/live" element={<LiveCoinWatchWidget />} />
         <Route path="/searchcrypto" element={<SearchCrypto />} />
       </Routes>
     

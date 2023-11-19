@@ -11,12 +11,11 @@ const CryptoWidget = () => {
   return (
     <div
       id="crypto-widget-CoinMarquee"
-      data-transparent="true"
+      data-transparent="false"
       data-theme="dark"
       data-design="modern"
-      data-coin-ids="1,166,136,29,418,20,1986"></div>
-
-
+      data-coin-ids="1,166,136,29,418,20,1986">
+      </div>
   );
 };
 

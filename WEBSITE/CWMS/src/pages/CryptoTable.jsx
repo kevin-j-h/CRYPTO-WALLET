@@ -6,7 +6,7 @@ import '../styles/crypto.css'; // Make sure to replace 'your-stylesheet.css' wit
 const LiveCoinWatchWidget = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://www.livecoinwatch.com/static/lcw-widget.js';
+    script.src = 'https://www.cryptohopper.com/widgets/js/script';
     script.defer = true;
     document.body.appendChild(script);
   }, []);
@@ -21,7 +21,7 @@ const LiveCoinWatchWidget = () => {
       lcw-d-icon={true}
       lcw-color-tx="#ffffff"
       lcw-color-bg="#1f2434"
-      lcw-border-w="7"
+      lcw-border-w="1"
     ></div>
   );
 };
