@@ -8,8 +8,11 @@ function Navbar() {
       <ul className="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#">Cryptocurrencies</a></li>
+        <li><a href="#">Trade</a></li>
+        <li><a href="#">Transactions</a></li>
+        <li><a href="#">Watchlist</a></li>
+        <li><a href="#">Wallet</a></li>
       </ul>
     </nav>
   );
@@ -22,7 +25,7 @@ function Website() {
       <header className="header">
         <div className="logo">
           <h1>Crypto X</h1>
-          <Navbar /> {}
+          <Navbar />
         </div>
       </header>
 
@@ -50,6 +53,42 @@ function Website() {
           <h4>eth</h4>
           <h4>dodge</h4>
         </div>
+        <a href="#" className="view-button">View</a>
+      </section>
+
+      <section className="transactions">
+        <h2>Recent Transactions</h2>
+        <h4>transaction1</h4>
+        <h4>transaction2</h4>
+        <h4>transaction3</h4>
+        <h4>transaction4</h4>
+        <h4>transaction5</h4>
+        <br></br>
+        <a href="#" className="view-button">View</a>
+      </section>
+
+      <section className="watchlist">
+        <h2>Your Watchlist</h2>
+        <h4>watchlist1</h4>
+        <h4>watchlist2</h4>
+        <h4>watchlist3</h4>
+        <h4>watchlist4</h4>
+        <h4>watchlist5</h4>
+        <br></br>
+        <a href="#" className="view-button">View</a>
+      </section>
+
+      <section className="wallet">
+        <h2>Your Wallet</h2>
+        <div className="wallet-info">
+          <p><strong>Balance:</strong> 0.00 BTC</p>
+          <p><strong>Address:</strong> Your Wallet Address</p>
+        </div>
+        <div className="wallet-actions">
+          <a href="#" className="cta-button">Send BTC</a>
+          <a href="#" className="cta-button">Receive BTC</a>
+        </div>
+        <br></br>
         <a href="#" className="view-button">View</a>
       </section>
 

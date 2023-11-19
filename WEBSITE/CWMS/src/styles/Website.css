@@ -25,7 +25,7 @@
   .search,
   .buy-sell {
     text-align: center;
-    padding: 40px; /* Increase padding for better spacing */
+    padding: 200px; /* Increase padding for better spacing */
   }
 
   .crypto-list {
@@ -34,6 +34,13 @@
 
   .footer {
     text-align: center;
-    padding: 40px;
+    padding: 5px;
   }
 
+/* Add or adjust styles for the new sections */
+.transactions,
+.watchlist,
+.wallet {
+  text-align: center;
+  padding: 20px;
+}
