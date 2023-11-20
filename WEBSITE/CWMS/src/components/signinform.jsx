@@ -25,7 +25,7 @@ function SignInForm() {
     const { email, password } = state;
 
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
       });
@@ -35,7 +35,7 @@ function SignInForm() {
       }
 
       // Sign-in successful, you can redirect to Dashboard or perform necessary actions
-      console.log('Sign-in successful:', user);
+      console.log('Sign-in successful:', data);
       navigate("/dash"); // Redirect to dashboard upon successful login
     } catch (error) {
       console.error('Error signing in:', error.message);
