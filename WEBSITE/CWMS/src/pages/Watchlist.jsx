@@ -1,22 +1,82 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../config/supabaseClient';
+import { useLocation } from 'react-router-dom';
 
-function Watchlist() {
+const Watchlist = () => {
+  const location = useLocation();
+  const userid = location.state;
+  const [watchlist, setWatchlist] = useState([]);
+
+  useEffect(() => {
+    const fetchWatchlistData = async () => {
+      try {
+        // Fetch the user's watchlist based on userid
+        const { data: watchlistData, error: watchlistError } = await supabase
+          .from('watchlist')
+          .select('watchlistid', 'cryptoid')
+          .eq('userid', userid);
+
+        if (watchlistError) {
+          console.error('Error fetching watchlist data:', watchlistError.message);
+          return;
+        }
+
+        setWatchlist(watchlistData || []);
+      } catch (error) {
+        console.error('Error in fetchWatchlistData:', error.message);
+      }
+    };
+
+    fetchWatchlistData();
+  }, []);
+
   return (
     <div>
-    {/* <Navbar /> */}
-    <section className="watchlist">
-        <h2>Your Watchlist</h2>
-        <h4>watchlist1</h4>
-        <h4>watchlist2</h4>
-        <h4>watchlist3</h4>
-        <h4>watchlist4</h4>
-        <h4>watchlist5</h4>
-        <br></br>
-        <a href="#" className="view-button">View</a>
-      </section>
-      </div>
+      <h2>My Watchlist</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Crypto Name</th>
+            <th>Price</th>
+            <th>Market Cap</th>
+          </tr>
+        </thead>
+        <tbody>
+          {watchlist.map(async (watchlistItem) => {
+            try {
+              // Fetch additional information from the cryptocurrency table
+              const { data: cryptoData, error: cryptoError } = await supabase
+                .from('cryptocurrency')
+                .select('symbol', 'name', 'price', 'market_cap')
+                .eq('cryptoid', watchlistItem.cryptoid);
+                console.log(JSON.stringify(cryptoData, null, 2))
+
+
+
+              if (cryptoError) {
+                console.error('Error fetching cryptocurrency data:', cryptoError.message);
+                return;
+              }
+
+              const cryptoInfo = cryptoData[0];
+
+              return (
+                <tr key={watchlistItem.watchlistid}>
+                  <td>{cryptoInfo.symbol}</td>
+                  <td>{cryptoInfo.name}</td>
+                  <td>{cryptoInfo.price}</td>
+                  <td>{cryptoInfo.market_cap}</td>
+                </tr>
+              );
+            } catch (error) {
+              console.error('Error in fetching cryptocurrency data:', error.message);
+            }
+          })}
+        </tbody>
+      </table>
+    </div>
   );
-}
+};
 
 export default Watchlist;

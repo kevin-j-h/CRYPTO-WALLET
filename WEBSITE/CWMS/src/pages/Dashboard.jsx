@@ -148,9 +148,8 @@ const Dashboard = () => {
               <h4>watchlist icon</h4>
               <h4>watchlist icon</h4>
               <br></br>
-              <Link to="/watchlist" className="view-button">
-                View
-              </Link>
+              <button onClick={()=> navigate('/watchlist', {state: id})}>View</button>
+
             </div>
           </section>
 
