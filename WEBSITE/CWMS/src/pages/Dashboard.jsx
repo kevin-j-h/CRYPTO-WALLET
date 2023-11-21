@@ -96,17 +96,11 @@ const Dashboard = () => {
                 </p>
               </div>
               <div className="wallet-actions">
-                <a href="#" className="cta-button">
-                  Send BTC
-                </a>
-                <a href="#" className="cta-button">
-                  Receive BTC
-                </a>
+                <p>Send BTC</p>
+                <p>Receive BTC</p>
               </div>
               <br></br>
-              <Link to="/wallet" className="view-button">
-                View
-              </Link>
+              <button onClick={()=> navigate('/wallet', {state: wallet})}>View</button>
             </div>
           </section>
 
@@ -128,9 +122,7 @@ const Dashboard = () => {
                 <h4>eth</h4>
                 <h4>dodge</h4>
               </div>
-              <Link to="/buysell" className="view-button">
-                View
-              </Link>
+              <button onClick={()=> navigate('/buysell', {state: wallet})}>View</button>
             </div>
           </section>
 

@@ -1,8 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Wallet() {
+  const location = useLocation();
+  // console.log(location);
+  const walletDetails = location.state;
+  console.log(walletDetails)
+  
   return (
     <div>
     {/* <Navbar /> */}
