@@ -36,7 +36,7 @@ function SignInForm() {
 
       console.log('Sign-in successful:', data);
       const userId = data.user.id
-      console.log(userId)
+      // console.log(userId)
       navigate("/dashboard", { state: data }); 
     } catch (error) {
       console.error('Error signing in:', error.message);

@@ -16,14 +16,16 @@ import SendReceiveCrypto from './pages/Send';
 import CryptoMarquee from './pages/CryptoMarquee';
 import LiveCoinWatchWidget from './pages/CryptoTable';
 import SearchCrypto from './pages/SearchCrypto';
+import Landing from './pages/Landing';
 
 const App = () => {
   return (
     
     <BrowserRouter>
       <Routes>
-
-        <Route path="/" element={<Website />}/>
+        
+        <Route path="/" element={<Landing />}/>
+        <Route path="/website" element={<Website />}/>
         <Route path="/login" element={<Login />}/>
         {/* <Route path="/signup" element={<Signup />}/> */}
         <Route path="/dashboard" element={<Dashboard />}/>

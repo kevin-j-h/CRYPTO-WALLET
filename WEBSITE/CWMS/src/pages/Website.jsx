@@ -17,7 +17,7 @@ function Website() {
       </header>
 
       
-      <Dashboard />
+      {/* <Dashboard /> */}
       <section className="wallet">
         <div className='card'>
           <h2>Your Wallet</h2>

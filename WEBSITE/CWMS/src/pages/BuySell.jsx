@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { supabase } from '../config/supabaseClient';
 import CryptoBuyTable from './CryptoBuyTable';
 
 function CryptoBuySell() {
@@ -20,7 +21,7 @@ function CryptoBuySell() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`You want to ${action} ${amount} of ${crypto}`);
+    console.log(`You want to ${action} ${amount} ${crypto}`);
   };
 
   return (
