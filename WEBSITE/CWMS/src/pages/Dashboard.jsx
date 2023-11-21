@@ -129,15 +129,7 @@ const Dashboard = () => {
           <section className="transactions">
             <div className="card">
               <h2>Recent Transactions</h2>
-              <h4>transaction1</h4>
-              <h4>transaction2</h4>
-              <h4>transaction3</h4>
-              <h4>transaction4</h4>
-              <h4>transaction5</h4>
-              <br></br>
-              <Link to="/transactions" className="view-button">
-                View
-              </Link>
+              <button onClick={()=> navigate('/transactions', {state: id})}>View</button>
             </div>
           </section>
 

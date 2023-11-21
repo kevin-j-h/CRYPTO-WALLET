@@ -1,23 +1,53 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { supabase } from '../config/supabaseClient';
+import Navbar from '../components/Navbar';
 
 function Transactions() {
+  const location = useLocation();
+  const id = location.state;
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('transaction')
+          .select('amount', 'timestamp')
+          .eq('userid', id);
+
+        if (error) {
+          throw error;
+        }
+
+        setTransactions(data || []);
+        console.log(transactions)
+      } catch (error) {
+        console.error('Error fetching transaction data:', error.message);
+      }
+    };
+
+    fetchTransactions();
+  }, [id]);
+
   return (
     <div>
-    {/* <Navbar /> */}
-    <section className="transactions">
+      <Navbar />
+      <section className="transactions">
         <h2>Recent Transactions</h2>
-        <h4>transaction1</h4>
-        <h4>transaction2</h4>
-        <h4>transaction3</h4>
-        <h4>transaction4</h4>
-        <h4>transaction5</h4>
-        <br></br>
-        <a href="#" className="view-button">View</a>
+        <ul>
+          {transactions.map((transaction) => (
+            <li key={transaction.timestamp}>
+              <p>Amount: {transaction.amount}</p>
+              <p>Timestamp: {transaction.timestamp}</p>
+            </li>
+          ))}
+        </ul>
+        <br />
       </section>
-      </div>
+    </div>
   );
 }
 
 export default Transactions;
-
