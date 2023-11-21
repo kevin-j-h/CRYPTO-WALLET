@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import CryptoBuyTable from './CryptoBuyTable';
+
 function CryptoBuySell() {
   const [action, setAction] = useState('');
   const [crypto, setCrypto] = useState('');

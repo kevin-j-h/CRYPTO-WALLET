@@ -34,12 +34,13 @@ function SignInForm() {
         throw error;
       }
 
-      // Sign-in successful, you can redirect to Dashboard or perform necessary actions
       console.log('Sign-in successful:', data);
-      navigate("/dash"); // Redirect to dashboard upon successful login
+      const userId = data.user.id
+      console.log(userId)
+      navigate("/dashboard", { state: data }); 
     } catch (error) {
       console.error('Error signing in:', error.message);
-      // Handle error, display error message, etc.
+      alert('Invalid email or password. Please try again.');
     }
     for (const key in state) {
       setState({

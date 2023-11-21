@@ -1,48 +1,59 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../config/supabaseClient";
+import { useLocation } from "react-router-dom";
 
-// assuming its props
+import Navbar from "../components/Navbar";
+
 const Dashboard = () => {
-  // const user = props.userid;
-  const user = '8c250833-cc8c-4b6a-8184-31b8d88b50d8';
+  const location = useLocation();
+  console.log(location)
+  const id = location.state.user.id
+  console.log(id)
   const [userData, setUserData] = useState('');
 
   useEffect(() => {
-    const fetchData = async() => {
-      try{
-        //fetch data of user having uuid as user
-        const {data: userData, error: userError} = await supabase
-        .from('user')
-        .select('*')
-        .eq('userid', user)
-        .single();
-        console.log(userData)
-        if (userError) {throw userError;}
-        
-        setUserData(userData);
+    const fetchData = async () => {
+      if (id) {
+        try {
+          const { data: userData, error: userError } = await supabase
+            .from("user")
+            .select("*")
+            .eq("userid", id)
+            .single();
 
-      } catch (error) {
-        console.log(error.message);
+          if (userError) {
+            throw userError;
+          }
+
+          setUserData(userData);
+        } catch (error) {
+          console.log(error.message);
+        }
       }
-    }
+    };
 
     fetchData();
-  }, []);
-
-  
+  }, [id]);
 
   return (
     <div>
-      <section className="hero">
-        <div className='card'>
-          <h2>Welcome MR {userData.firstname}</h2>
-          <p>Cryptocurrency Wallet Is Active.</p>
-          <br></br>
-          <a href="#" className="cta-button">WALLET ID</a>
-        </div>
-      </section>
+      <Navbar />
+      {id ? (
+        <section className="hero">
+          <div className="card">
+            <h2>Welcome MR {userData?.firstname}</h2>
+            <p>Cryptocurrency Wallet Is Active.</p>
+            <br></br>
+            <a href="#" className="cta-button">
+              WALLET ID
+            </a>
+          </div>
+        </section>
+      ) : (
+        <p>Not found</p>
+      )}
     </div>
   );
 };
 
-export default Dashboard; 
+export default Dashboard;
