@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../config/supabaseClient";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 as uuidv4 } from 'uuid';  
 import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
@@ -74,12 +73,17 @@ const Dashboard = () => {
 
   return (
     <div>
+      <header className="header">
+        <div className="logo">
+          <h1>Crypto X</h1>
+        </div>
+      </header>
       <Navbar />
       {id ? (
         <div>
           <section className="hero">
             <div className="card">
-              <h2>Welcome MR {userData?.firstname}</h2>
+              <h2>Welcome  {userData?.firstname}</h2>
               <p>Cryptocurrency Wallet Is Active.</p>
               <p>Your wallet ID is: {wallet.walletid}</p>
             </div>
@@ -107,6 +111,7 @@ const Dashboard = () => {
           <section className="search">
             <div className="card">
               <h2>View Cryptocurrencies</h2>
+              <p></p>
               <br></br>
               <Link to="/searchcrypto" className="view-button">
                 View
@@ -146,7 +151,7 @@ const Dashboard = () => {
           </section>
 
           <footer className="footer">
-            <p>Crypto Wallet</p>
+            <p>CryptoX</p>
           </footer>
         </div>
       ) : (
