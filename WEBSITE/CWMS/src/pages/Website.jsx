@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // import SearchComponent from './Search';
 import Dashboard from '../pages/Dashboard'
 
+
 function Website() {
   return (
     <div className="website-container">

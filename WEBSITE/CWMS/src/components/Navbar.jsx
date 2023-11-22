@@ -1,19 +1,28 @@
-const Navbar = () => {
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Navbar = ({ isLoggedIn, handleLogout }) => {
   return (
-    <div>
-      <nav className="navbar">
+    <nav className="navbar">
       <ul className="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Cryptocurrencies</a></li>
-        <li><a href="#">Trade</a></li>
-        <li><a href="#">Transactions</a></li>
-        <li><a href="#">Watchlist</a></li>
-        <li><a href="#">Wallet</a></li>
+        <li><Link to="/">Home</Link></li>
+        {isLoggedIn ? (
+          <>
+            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/searchcrypto">Cryptocurrencies</Link></li>
+            <li><Link to="/buysell">Trade</Link></li>
+            <li><Link to="/transactions">Transactions</Link></li>
+            <li><Link to="/watchlist">Watchlist</Link></li>
+            <li><Link to="/wallet">Wallet</Link></li>
+            <li><button onClick={handleLogout}>Logout</button></li>
+          </>
+        ) : (
+          <li><Link to=" ">Login</Link></li>
+        )}
       </ul>
     </nav>
-    </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
