@@ -21,7 +21,7 @@ const Login = () => {
 
   return (
     <div className="App">
-      <h2>Sign in/up Form</h2>
+      {/* <h2>Sign in/up Form</h2> */}
       <div className={containerClass} id="container">
         <SignUpForm />
         <SignInForm />
