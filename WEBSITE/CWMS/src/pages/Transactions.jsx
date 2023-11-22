@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { supabase } from '../config/supabaseClient';
-import Navbar from '../components/Navbar';
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { supabase } from "../config/supabaseClient";
+import Navbar from "../components/Navbar";
 
 function Transactions() {
   const location = useLocation();
@@ -13,18 +12,17 @@ function Transactions() {
     const fetchTransactions = async () => {
       try {
         const { data, error } = await supabase
-          .from('transaction')
-          .select('amount', 'timestamp')
-          .eq('userid', id);
+          .from("transaction")
+          .select()
+          .eq("userid", id);
 
         if (error) {
           throw error;
         }
 
         setTransactions(data || []);
-        console.log(transactions)
       } catch (error) {
-        console.error('Error fetching transaction data:', error.message);
+        console.error("Error fetching transaction data:", error.message);
       }
     };
 
@@ -39,8 +37,13 @@ function Transactions() {
         <ul>
           {transactions.map((transaction) => (
             <li key={transaction.timestamp}>
-              <p>Amount: {transaction.amount}</p>
-              <p>Timestamp: {transaction.timestamp}</p>
+              <div className="listid">
+                <p>Transaction ID: {transaction.transactionid}</p>
+                <p>Amount: {transaction.amount}</p>
+                <p>
+                  Timestamp: {new Date(transaction.timestamp).toLocaleString()}
+                </p>
+              </div>
             </li>
           ))}
         </ul>

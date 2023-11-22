@@ -50,6 +50,14 @@ function CryptoBuySell() {
     }
     console.log(`You want to ${action} ${amount} ${crypto}`);
 
+    if (action === 'buy'){
+      //add to wallet, transaction, sub bal
+
+    }
+
+    if (action === 'sell'){
+      //sub from wallet, transaction, add bal
+    }
     try {
       const {data, error} = await supabase.from('cryptocurrency')
       console.log(data)

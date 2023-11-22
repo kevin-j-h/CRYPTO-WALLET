@@ -55,7 +55,7 @@ const Dashboard = () => {
               console.error('Error creating wallet:', newWalletError.message);
               return;
             }
-            setWalletID(walletId)
+            setWallet(walletId)
             console.log(newWallet)
           }
           if (walletError) {

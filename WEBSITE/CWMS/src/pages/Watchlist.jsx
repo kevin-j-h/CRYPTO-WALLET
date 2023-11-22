@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../config/supabaseClient';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Watchlist = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const id = location.state;
   const [watchlist, setWatchlist] = useState([]);
@@ -61,6 +62,7 @@ const Watchlist = () => {
   return (
     <div>
       <h2>My Watchlist</h2>
+      <button onClick={() => navigate('addWatchlist', {state: id})}>Add</button>
       <table>
         <thead>
           <tr>

@@ -17,6 +17,7 @@ import CryptoMarquee from './pages/CryptoMarquee';
 import LiveCoinWatchWidget from './pages/CryptoTable';
 import SearchCrypto from './pages/SearchCrypto';
 import Landing from './pages/Landing';
+import AddWatchlist from './pages/AddWatchlist'
 
 const App = () => {
   return (
@@ -39,6 +40,8 @@ const App = () => {
         <Route path="/marquee" element={<CryptoMarquee />} />
         <Route path="/live" element={<LiveCoinWatchWidget />} />
         <Route path="/searchcrypto" element={<SearchCrypto />} />
+        <Route path="/watchlist/addWatchlist" element={<AddWatchlist />} />
+        
       </Routes>
     
     </BrowserRouter>
