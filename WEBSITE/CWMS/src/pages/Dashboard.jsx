@@ -19,13 +19,13 @@ const Dashboard = () => {
         try {
           const { data: userData, error: userError } = await supabase
             .from("user")
-            .select("*")
+            .select()
             .eq("userid", id)
             .single();
 
           const { data: walletData, error: walletError } = await supabase
             .from('wallet')
-            .select('*')
+            .select()
             .eq('userid', id)
             .single();
 

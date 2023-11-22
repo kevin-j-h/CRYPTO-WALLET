@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 
@@ -21,6 +21,21 @@ import AddWatchlist from './pages/AddWatchlist'
 import AdminLogin from './pages/adminlogin'
 import AdminDash from './pages/AdminDash'
 const App = () => {
+  const [token,setToken]=useState(false);
+  
+  if(token){
+    sessionStorage.setItem('token',JSON.stringify(token))
+  }
+
+useEffect(()=>{
+    if(sessionStorage.getItem('token')){
+      let data=JSON.parse(sessionStorage.getItem('token'))
+      setToken(data);
+    }
+},[])
+
+
+
   return (
     
     <BrowserRouter>
@@ -30,7 +45,7 @@ const App = () => {
         <Route path="/website" element={<Website />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="/admindash" element={<AdminDash />}/>
+        {token?<Route path="/admindash" element={<AdminDash token={token}/>}/>:""}
         <Route path='/transactions' element={<Transactions />} />
         <Route path='/watchlist' element={<Watchlist />} />
         <Route path='/wallet' element={<Wallet />} />
@@ -41,7 +56,7 @@ const App = () => {
         <Route path="/live" element={<LiveCoinWatchWidget />} /> */}
         <Route path="/searchcrypto" element={<SearchCrypto />} />
         <Route path="/watchlist/addWatchlist" element={<AddWatchlist />} />
-        <Route path="/adminlogin" element={<AdminLogin />}/>
+        <Route path="/adminlogin" element={<AdminLogin setToken={setToken}/>}/>
       </Routes>
     
     </BrowserRouter>

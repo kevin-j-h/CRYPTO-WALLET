@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {supabase} from '../config/supabaseClient'
 
-const AdminLogin = () => {
+const AdminLogin = ({setToken}) => {
     const navigate =useNavigate();
     const [state, setState] = useState({
         email: '',
@@ -41,7 +41,9 @@ const AdminLogin = () => {
           console.log('Sign-in successful:', data);
           const userId = data.user.id
           // console.log(userId)
-          navigate("/admindash", { state: data }); 
+          setToken(data)
+          navigate("/admindash");
+       
         } catch (error) {
           console.error('Error signing in:', error.message);
           alert('Invalid email or password. Please try again.');
