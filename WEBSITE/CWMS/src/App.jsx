@@ -18,7 +18,8 @@ import LiveCoinWatchWidget from './pages/CryptoTable';
 import SearchCrypto from './pages/SearchCrypto';
 import Landing from './pages/Landing';
 import AddWatchlist from './pages/AddWatchlist'
-
+import AdminLogin from './pages/adminlogin'
+import AdminDash from './pages/AdminDash'
 const App = () => {
   return (
     
@@ -28,9 +29,8 @@ const App = () => {
         <Route path="/" element={<Landing />}/>
         <Route path="/website" element={<Website />}/>
         <Route path="/login" element={<Login />}/>
-        {/* <Route path="/signup" element={<Signup />}/> */}
         <Route path="/dashboard" element={<Dashboard />}/>
-        {/* <Route path="/dash" element={<Dash />}/> */}
+        <Route path="/admindash" element={<AdminDash />}/>
         <Route path='/transactions' element={<Transactions />} />
         <Route path='/watchlist' element={<Watchlist />} />
         <Route path='/wallet' element={<Wallet />} />
@@ -41,7 +41,7 @@ const App = () => {
         <Route path="/live" element={<LiveCoinWatchWidget />} />
         <Route path="/searchcrypto" element={<SearchCrypto />} />
         <Route path="/watchlist/addWatchlist" element={<AddWatchlist />} />
-        
+        <Route path="/adminlogin" element={<AdminLogin />}/>
       </Routes>
     
     </BrowserRouter>

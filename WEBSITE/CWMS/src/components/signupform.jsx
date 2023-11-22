@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { supabase } from '../config/supabaseClient';
+import { Link } from 'react-router-dom';
 
 function SignUpForm() {
   const [ustate, setUstate] = useState({
@@ -179,7 +180,7 @@ console.error('Error signing up:', error.message);
           style={{width:'35%'}}
         />
         </div>
-       
+        <Link to="/">Back to Home</Link>
         <button type="submit">Sign Up</button>
       </form>
     </div>

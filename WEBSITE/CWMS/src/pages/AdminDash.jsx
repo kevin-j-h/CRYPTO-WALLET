@@ -2,13 +2,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Dash = () => {
+const AdminDash = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     // Perform logout logic here
     // For example, clear tokens or user session
-    navigate('/login'); // Redirect to login page after logout
+    navigate('/adminlogin'); // Redirect to login page after logout
   };
 
   return (
@@ -20,4 +20,4 @@ const Dash = () => {
   );
 };
 
-export default Dash;
+export default AdminDash;
