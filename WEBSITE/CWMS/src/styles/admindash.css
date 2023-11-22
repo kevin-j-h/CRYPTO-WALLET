@@ -1,0 +1,40 @@
+/* Basic reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styles for the header and navbar */
+  header {
+    background-color: #333;
+    color: rgb(230, 88, 6);
+    padding: 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  #logout button {
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  #logout button:hover {
+    background-color: #b30000;
+    transition-delay: 5ms;
+    transition: ease-in-out;
+  }
+  
