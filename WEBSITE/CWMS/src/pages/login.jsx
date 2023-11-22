@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SignInForm from '../components/signinform';
-import SignUp2Form from '../components/signup';
+import SignUpForm from '../components/signupform';
 import '../styles/login.css';
 
 
@@ -22,7 +22,7 @@ const Login = () => {
     <div className="App">
       {/* <h2>Sign in/up Form</h2> */}
       <div className={containerClass} id="container">
-        <SignUp2Form />
+        <SignUpForm />
         <SignInForm />
         <div className="overlay-container">
           <div className="overlay">
