@@ -68,7 +68,7 @@ function SignUp2Form() {
       console.error('Error signing up:', error.message);
     }
 try {
-  const user = supabase.auth.user(); // Get the current authenticated user
+  const user = supabase.auth.getUser(); // Get the current authenticated user
 
 const { data, error } = await supabase
   .from('user')
