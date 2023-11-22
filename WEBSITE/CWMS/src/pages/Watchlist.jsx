@@ -1,34 +1,62 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../config/supabaseClient';
 import { useLocation } from 'react-router-dom';
 
 const Watchlist = () => {
   const location = useLocation();
-  const userid = location.state;
+  const id = location.state;
   const [watchlist, setWatchlist] = useState([]);
+  const [cryptoInfoArray, setCryptoInfoArray] = useState([]);
 
   useEffect(() => {
     const fetchWatchlistData = async () => {
       try {
-        // Fetch the user's watchlist based on userid
         const { data: watchlistData, error: watchlistError } = await supabase
           .from('watchlist')
-          .select('watchlistid', 'cryptoid')
-          .eq('userid', userid);
+          .select('cryptoid')
+          .eq('userid', id);
 
         if (watchlistError) {
           console.error('Error fetching watchlist data:', watchlistError.message);
           return;
         }
 
-        setWatchlist(watchlistData || []);
+        const watch = watchlistData[0]?.cryptoid || [];
+        setWatchlist(watch);
       } catch (error) {
         console.error('Error in fetchWatchlistData:', error.message);
       }
     };
 
     fetchWatchlistData();
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    const fetchDataForWatchlist = async () => {
+      try {
+        const promises = watchlist.map(async (watchlistItem) => {
+          const { data: cryptoData, error: cryptoError } = await supabase
+            .from('cryptocurrency')
+            .select()
+            .eq('cryptoid', watchlistItem);
+
+          if (cryptoError) {
+            console.error('Error fetching cryptocurrency data:', cryptoError.message);
+            return null;
+          }
+
+          return cryptoData[0];
+        });
+
+        const cryptoInfoArray = await Promise.all(promises);
+        setCryptoInfoArray(cryptoInfoArray);
+      } catch (error) {
+        console.error('Error in fetching cryptocurrency data:', error.message);
+      }
+    };
+
+    fetchDataForWatchlist();
+  }, [watchlist]);
 
   return (
     <div>
@@ -43,36 +71,14 @@ const Watchlist = () => {
           </tr>
         </thead>
         <tbody>
-          {watchlist.map(async (watchlistItem) => {
-            try {
-              // Fetch additional information from the cryptocurrency table
-              const { data: cryptoData, error: cryptoError } = await supabase
-                .from('cryptocurrency')
-                .select('symbol', 'name', 'price', 'market_cap')
-                .eq('cryptoid', watchlistItem.cryptoid);
-                console.log(JSON.stringify(cryptoData, null, 2))
-
-
-
-              if (cryptoError) {
-                console.error('Error fetching cryptocurrency data:', cryptoError.message);
-                return;
-              }
-
-              const cryptoInfo = cryptoData[0];
-
-              return (
-                <tr key={watchlistItem.watchlistid}>
-                  <td>{cryptoInfo.symbol}</td>
-                  <td>{cryptoInfo.name}</td>
-                  <td>{cryptoInfo.price}</td>
-                  <td>{cryptoInfo.market_cap}</td>
-                </tr>
-              );
-            } catch (error) {
-              console.error('Error in fetching cryptocurrency data:', error.message);
-            }
-          })}
+          {cryptoInfoArray.map((cryptoInfo, index) => (
+            <tr key={index}>
+              <td>{cryptoInfo.symbol}</td>
+              <td>{cryptoInfo.cryptoname}</td>
+              <td>{cryptoInfo.cryptoprice}</td>
+              <td>{cryptoInfo.marketcap}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
