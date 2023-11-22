@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

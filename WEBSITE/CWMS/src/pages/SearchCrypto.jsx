@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import CryptoWidget from "./CryptoMarquee";
-import LiveCoinWatchWidget from "./CryptoTable";
+// import CryptoWidget from "./CryptoMarquee";
+import CryptoTable from "./CryptoTable";
 
 const SearchCrypto = () => {
     return <div id="searchcrypto">
-        <CryptoWidget />
-        <LiveCoinWatchWidget />
+        {/* <CryptoWidget /> */}
+        <CryptoTable />
         </div>;
 };
 
