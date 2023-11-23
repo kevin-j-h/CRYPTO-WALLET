@@ -76,8 +76,8 @@ const Dashboard = () => {
     <div>
       <header className="header1" style={{position:'fixed',width:"100%"}}>
         <div className="logo">
-          <h1 >Crypto X
-          <Navbar /> </h1>
+          <h1 >Crypto X </h1>
+          {/* <Navbar /> </h1> */}
         </div>
       </header>
       <Navbar /> {/* Use Navbar component */}

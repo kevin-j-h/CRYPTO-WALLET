@@ -13,7 +13,7 @@ function Website() {
       <header className="header">
         <div className="logo">
           <h1>Crypto X</h1>
-          <Navbar />
+          {/* <Navbar /> */}
         </div>
       </header>
 

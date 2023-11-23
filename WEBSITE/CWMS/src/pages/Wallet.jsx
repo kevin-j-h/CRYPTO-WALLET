@@ -1,34 +1,74 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../config/supabaseClient';
 import { Link, useLocation } from 'react-router-dom';
 import "../styles/wallet.css";
+
 function Wallet() {
   const location = useLocation();
-  // console.log(location);
   const walletDetails = location.state;
-  console.log(walletDetails)
-  
+  const walletId = walletDetails.walletid; // Fix variable name here
+  console.log(walletDetails);
+
+  const [cryptoDetails, setCryptoDetails] = useState([]);
+
+  useEffect(() => {
+    const fetchCryptoDetails = async () => {
+      try {
+        const { data: walletData, error: walletError } = await supabase
+          .from("wallet")
+          .select("cryptoid")
+          .eq("walletid", walletId);
+
+        if (walletError) {
+          throw walletError;
+        }
+
+        const cryptoIdList = walletData[0].cryptoid; // Assuming cryptoid is an array in your wallet table
+
+        if (cryptoIdList && cryptoIdList.length > 0) {
+          const { data: cryptoData, error: cryptoError } = await supabase
+            .from("cryptocurrency")
+            .select("cryptoname")
+            .in("cryptoid", cryptoIdList);
+
+          if (cryptoError) {
+            throw cryptoError;
+          }
+
+          setCryptoDetails(cryptoData);
+        }
+      } catch (error) {
+        console.error('Error fetching wallet or cryptocurrency details:', error.message);
+      }
+    };
+
+    fetchCryptoDetails();
+  }, [walletId]);
+
   return (
     <div>
-    {/* <Navbar /> */}
-    <div className='bodyy'>
-    <section className="wallet1">
-        <h2>Your Wallet</h2>
-        <div className="wallet-info">
-          <p><strong>Balance:</strong> 0.00 BTC</p>
-          <p><strong>Address:</strong> Your Wallet Address</p>
-        </div>
-        <div className="wallet1-actions">
-        <Link to="/sendreceive" className="cta-button">Send BTC</Link>
-          <a href="#" className="cta-button">Receive BTC</a>
-        </div>
-        <br></br>
+      <div className='bodyy'>
+        <section className="wallet1">
+          <h2>Your Wallet</h2>
+          <div className="wallet-info">
+            {/* Display other wallet information here */}
+          </div>
+          <div className="wallet1-actions">
+            {/* Add wallet action links here */}
+          </div>
+          <br></br>
 
-      </section>
+          {cryptoDetails.map((crypto, index) => (
+            <div key={index} className="crypto-balance">
+              <p><strong>Cryptoname:</strong> {crypto.cryptoname}</p>
+            </div>
+          ))}
+          <p>Total balance: {walletDetails.balance}</p>
+        </section>
       </div>
-      </div>
+    </div>
   );
 }
 
 export default Wallet;
-
