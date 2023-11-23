@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../config/supabaseClient";
 import CryptoBuyTable from "./CryptoBuyTable";
 import { useLocation } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';  
+
 import "../styles/buysell.css";
 function CryptoBuySell() {
   const [wallet, setWallet] = useState("");
@@ -56,7 +58,7 @@ function CryptoBuySell() {
     };
 
     fetchWallet();
-  }, [id]); // Dependency array with id
+  }, [action, amount]); // Dependency array with id
 
   const handleCryptoChange = (event) => {
     setCrypto(event.target.value);
@@ -105,7 +107,13 @@ function CryptoBuySell() {
               );
             } else {
               console.log("CryptoBal updated in the wallet table:", data);
-              // Implement the rest of the sell logic here, e.g., add a transaction record
+              try {
+                const tId = uuidv4();
+                const { data, error } = await supabase.from("transaction").insert({transactionid: tId, timestamp: new Date().toISOString(), amount: amount, walletid: id.walletid, userid: uid});
+                if (error) {throw error;}
+              } catch (error) {
+                console.log(error.message)
+              }
             }
           } catch (error) {
             console.error(
