@@ -1,4 +1,4 @@
-
+/* eslint-disable no-unused-vars */
 import "../styles/adminlogin.css";
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -56,6 +56,7 @@ const AdminLogin = ({setToken}) => {
         }
       };
   return (
+    <div className="body2">
     <div id="login-form">
       <h1>Login</h1>
       <form onSubmit={handleOnSubmit}>
@@ -78,7 +79,7 @@ const AdminLogin = ({setToken}) => {
       </form>
       
     </div>
-    
+    </div>
   );
 };
 

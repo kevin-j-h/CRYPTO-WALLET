@@ -1,0 +1,65 @@
+/* Add this to your existing CSS */
+.page1{
+background-color: #000000;
+color:#fff
+}
+.buysell-list {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .crypto1 {
+    background: linear-gradient(to right, #021658, rgb(105, 20, 99)); /* Gradient background */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .crypto1:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased box shadow on hover */
+  }
+  
+  .crypto1 form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+  }
+  
+ .crypto1 select,
+  input[type="text"],
+  input[type="number"],
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #f8f4f4;
+    background-color: #dbd7d7;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  select {
+    width: 250px;
+  }
+  
+  input[type="text"] {
+    width: 250px;
+  }
+  
+  input[type="number"] {
+    width: 150px;
+  }
+  
+ .crypto1 button[type="submit"] {
+    background-color: #000000;
+    color: #bab9b9;
+    cursor: pointer;
+  }
+  
+ .crypto1 button[type="submit"]:hover {
+    background-color: #5b0052;
+  }
+  

@@ -1,64 +1,77 @@
+/* adminlogin.css */
+
+.body2 {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #c70848, rgb(210, 4, 158));
+}
+
 #login-form {
-    width: 400px;
-    max-width: 100%;
-    margin: 50px auto;
-    background-color: rgb(3, 36, 48);
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    font-family: "Poppins", sans-serif;
-  }
-  
-  #login-form h1 {
-    text-align: center;
-    margin: 0;
-    padding: 20px 0;
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-  }
-  
-  #login-form form {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  #login-form form label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: rgb(2, 0, 0);
-    font-family: "Poppins", sans-serif;
-  }
-  
-  #login-form form input[type="email"],
-  #login-form form input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  }
-  
-  #login-form form input[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: dodgerblue;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-  }
-  
-  #login-form form input[type="submit"]:hover {
-    background-color: deepskyblue;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-  
+  max-width: 400px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(253, 253, 253), #e6e6e6);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+#login-form:hover {
+  box-shadow: 0px 0px 40px rgba(10, 10, 10, 0.5); /* Increased box shadow on hover */
+}
+
+#login-form h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px; /* Increased margin-bottom for better spacing */
+  color: #333; /* Changed text color for better readability */
+}
+
+#login-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centered form items */
+}
+
+#login-form input {
+  margin: 10px 0;
+  padding: 12px; /* Increased padding for better input appearance */
+  border: 1px solid #ccc; /* Changed border color for better contrast */
+  border-radius: 5px;
+  width: 100%; /* Full width input */
+  box-sizing: border-box;
+}
+
+#login-form input[type="submit"] {
+  background: linear-gradient(to bottom, rgb(21, 0, 7), #050505);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%; /* Full width button */
+  box-sizing: border-box;
+}
+
+#login-form input[type="submit"]:hover {
+  background: linear-gradient(to right, #fb49ae, #7e88f9);
+}
+
+#login-form a {
+  margin-top: 15px; /* Increased margin-top for better spacing */
+  text-align: center;
+  color: #555; /* Changed text color for better contrast */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: block; /* Ensured the link is a block element for better spacing */
+}
+
+#login-form a:hover {
+  color: #c70848;
+}

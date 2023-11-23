@@ -1,0 +1,58 @@
+/* Wallet.css */
+
+.bodyy {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #c70848, rgb(210, 4, 158));
+  }
+  
+  .wallet1 {
+    background: linear-gradient(to bottom, #e1dbdb, #e6e6e6); /* Gradient background */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .wallet1 h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .wallet-info {
+    margin-bottom: 20px;
+  }
+  
+  .wallet-info p {
+    font-size: 18px;
+  }
+  
+  .wallet1-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px;
+    background-color: #007bff; /* Adjusted button color */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3; /* Adjusted hover color */
+  }
+  

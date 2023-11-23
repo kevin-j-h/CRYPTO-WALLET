@@ -1,8 +1,9 @@
+import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import { supabase } from "../config/supabaseClient";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';  
-import Navbar from "../components/Navbar";
+import '../styles/website.css'; // Make sure this path is correct
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -73,15 +74,15 @@ const Dashboard = () => {
 
   return (
     <div>
-      <header className="header">
+      <header className="header1">
         <div className="logo">
           <h1>Crypto X</h1>
         </div>
       </header>
-      <Navbar />
+      <Navbar /> {/* Use Navbar component */}
       {id ? (
-        <div>
-          <section className="hero">
+        <div className="container10">
+          <section id="hero" className="hero">
             <div className="card">
               <h2>Welcome  {userData?.firstname}</h2>
               <p>Cryptocurrency Wallet Is Active.</p>
@@ -90,7 +91,7 @@ const Dashboard = () => {
           </section>
           <section className="wallet">
             <div className="card">
-              <h2>Your Wallet</h2>
+              <h2>Wallet</h2>
               <div className="wallet-info">
                 <p>
                   <strong>Balance:</strong> {wallet.balance}
@@ -123,9 +124,6 @@ const Dashboard = () => {
             <div className="card">
               <h2>Buy/Sell Cryptocurrencies</h2>
               <div className="crypto-list">
-                <h4>btc</h4>
-                <h4>eth</h4>
-                <h4>dodge</h4>
               </div>
               <button onClick={()=> navigate('/buysell', {state: wallet})}>View</button>
             </div>
@@ -141,9 +139,7 @@ const Dashboard = () => {
           <section className="watchlist">
             <div className="card">
               <h2>Your Watchlist</h2>
-              <h4>watchlist icon</h4>
-              <h4>watchlist icon</h4>
-              <h4>watchlist icon</h4>
+
               <br></br>
               <button onClick={()=> navigate('/watchlist', {state: id})}>View</button>
 

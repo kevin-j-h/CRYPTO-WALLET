@@ -1,0 +1,76 @@
+/* Add this to your existing CSS or in a separate file */
+
+/* Container styles */
+.pagee{
+    background-color:rgb(255, 255, 255);
+}
+.watchlist-container {
+    max-width: 800px;
+    margin: 0 auto; /* This will center the container horizontally */
+    margin-top: 10%;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(10, 10, 10, 0.4);
+  }
+  
+  /* Center the button within the container */
+
+  /* Add this to center the table within the container */
+  .watchlist-container table {
+    margin: 0 auto; /* Center the table within its container */
+  }
+  
+  
+  /* Title styles */
+  .watchlist-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Button styles */
+  .watchlist-container button {
+    padding: 10px;
+    background-color: #080808;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Align button to the center */
+    display: block; /* Ensure it takes full width */
+    margin: 0 auto; /* Center the button within its container */
+  }
+  
+  .watchlist-container button:hover {
+    background-color: #0a4683;
+  }
+  
+  /* Table styles */
+  .watchlist-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  /* Table header styles */
+  .watchlist-container th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Table cell styles */
+  .watchlist-container td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  /* Alternating row colors for better readability */
+  .watchlist-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

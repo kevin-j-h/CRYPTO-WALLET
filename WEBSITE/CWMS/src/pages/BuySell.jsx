@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../config/supabaseClient";
 import CryptoBuyTable from "./CryptoBuyTable";
 import { useLocation } from "react-router-dom";
-
+import "../styles/buysell.css";
 function CryptoBuySell() {
   const [wallet, setWallet] = useState("");
   const location = useLocation();
@@ -121,8 +121,9 @@ function CryptoBuySell() {
   };
 
   return (
+    <div className="page1">
     <section className="buysell">
-      <h1>Buy/Sell Cryptocurrencies</h1>
+      <h1>Buy-Sell Cryptocurrencies</h1>
       <CryptoBuyTable />
       <div className="buysell-list">
         <div className="crypto1">
@@ -156,6 +157,7 @@ function CryptoBuySell() {
         </div>
       </div>
     </section>
+    </div>
   );
 }
 

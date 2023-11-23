@@ -1,27 +1,31 @@
 /* eslint-disable no-unused-vars */   
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/landing.css'; // Make sure this path is correct
 
 const Landing = () => {
-    const navigate = useNavigate();
-    const handleUserClick = () => {
-        navigate('/login')
-    }
-    const handleAdminClick = () => {
-      navigate('/adminlogin')
-  }
+  const navigate = useNavigate();
+
+  const handleUserClick = () => {
+    navigate('/login');
+  };
+
+  const handleAdminClick = () => {
+    navigate('/adminlogin');
+  };
+
   return (
-    <div>
-      <div>
-        <h1>Welcome to cryptox</h1>
-        <h6>Your secure wallet.</h6>
-        <div>
-            <button onClick={handleUserClick}>User </button>
-            <button onClick={handleAdminClick}>Admin </button>
-        </div>
+    <div className='body1'>
+    <div className="landing-container">
+      <h1 className="landing-title">Welcome To CryptoX</h1>
+      <h6 className="landing-subtitle">Your Secure Wallet.</h6>
+      <div className="button-container">
+        <button onClick={handleUserClick}>User</button>
+        <button onClick={handleAdminClick}>Admin</button>
       </div>
     </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Landing
+export default Landing;

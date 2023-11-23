@@ -1,0 +1,54 @@
+/* Send.css */
+
+.send-receive-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .send-receive-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .send-receive-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #e1dbdb, #e6e6e6);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .send-receive-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .send-receive-form input,
+  .send-receive-form select,
+  .send-receive-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .send-receive-form button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .send-receive-form button:hover {
+    background-color: #0056b3;
+  }
+  

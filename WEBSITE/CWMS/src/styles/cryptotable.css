@@ -1,3 +1,6 @@
+.tablebody{
+  background-color: #010000;
+}
 /* Style the table */
 table {
     border-collapse: collapse;
@@ -5,24 +8,34 @@ table {
   }
   
   /* Style the table header */
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
+/* Add this to your existing CSS */
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 20px;
+  color: white; /* Set text color to white */
+}
+
   
   /* Style the table header row */
   /*global table css*/
-  th {
-    background-color: #f2f2f2;
-  }
+/* Add this to your existing CSS */
+
+th {
+  background: linear-gradient(to bottom, #69077c, #000000); /* Gradient background */
+}
+
 /*   
   body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #efefef;
     font-weight: 300; }
-  
-  p {
-    color: #b3b3b3;
-    font-weight: 300; } */
+  */
+  .p-4{
+    
+    color: #ffffff;
+    font-weight: 300; 
+    text-align: center;
+  } 
   

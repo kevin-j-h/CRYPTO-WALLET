@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../config/supabaseClient';
 import { useLocation, useNavigate } from 'react-router-dom';
+import "../styles/watchlist.css";
 
 const Watchlist = () => {
   const navigate = useNavigate();
@@ -60,7 +61,9 @@ const Watchlist = () => {
   }, [watchlist]);
 
   return (
-    <div>
+    <div className='pagee'>
+      
+    <div className="watchlist-container">
       <h2>My Watchlist</h2>
       <button onClick={() => navigate('addWatchlist', {state: id})}>Add</button>
       <table>
@@ -83,6 +86,7 @@ const Watchlist = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

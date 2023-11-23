@@ -1,0 +1,66 @@
+/* Landing.css */
+
+.body1 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #c70848, rgb(210, 4, 158)); /* Gradient background */
+  }
+  
+  .landing-container {
+    text-align: center;
+    background: linear-gradient(to bottom, #e1dbdb, #e6e6e6); /* Gradient background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box shadow */
+    padding: 40px;
+    max-width: 600px; /* Increased maximum width */
+    width: 100%;
+    transition: box-shadow 0.3s ease; /* Transition for box shadow */
+  }
+  
+  .landing-container:hover {
+    box-shadow: 0 8px 40px rgba(10, 10, 0, 0.5); /* Box shadow on hover */
+  }
+  
+  .landing-title {
+    font-size: 36px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+  }
+  
+  .landing-subtitle {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .button-container button {
+    background: linear-gradient(to bottom, rgb(21, 0, 7), #050505); /* Gradient background */
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    transition: background 0.3s ease; /* Transition for background */
+  }
+  
+  .button-container button:hover {
+    background: linear-gradient(to right, #fb49ae, #7e88f9); /* Gradient background on hover */
+  }
+  
+  .button-container button:active {
+    background: linear-gradient(to right, #ff0c0c, #6f7af3); /* Gradient background on click */
+  }
+  

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { supabase } from "../config/supabaseClient";
 import Navbar from "../components/Navbar";
+import "../styles/transactions.css";
 
 function Transactions() {
   const location = useLocation();
@@ -32,8 +33,7 @@ function Transactions() {
   }, [id]);
 
   return (
-    <div>
-      <Navbar />
+    <div className="paget">
       <section className="transactions">
         <h2>Recent Transactions</h2>
         <ul>
@@ -42,9 +42,7 @@ function Transactions() {
               <div className="listid">
                 <p>Transaction ID: {transaction.transactionid}</p>
                 <p>Amount: {transaction.amount}</p>
-                <p>
-                  Timestamp: {new Date(transaction.timestamp).toLocaleString()}
-                </p>
+                <p>Timestamp: {new Date(transaction.timestamp).toLocaleString()}</p>
               </div>
             </li>
           ))}

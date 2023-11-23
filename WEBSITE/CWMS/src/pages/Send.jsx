@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import "../styles/send.css";
 
 function SendReceiveCrypto() {
   const [destination, setDestination] = useState({ address: '', amount: 0, crypto: '' });
@@ -25,6 +26,8 @@ function SendReceiveCrypto() {
   };
 
   return (
+    <div className='walletcont'>
+
     <div className="send-receive-container">
       <h2>Send/Receive Crypto</h2>
       <div className="send-receive-form">
@@ -40,6 +43,8 @@ function SendReceiveCrypto() {
           <button type="submit">Send</button>
         </form>
       </div>
+    </div>
+    
     </div>
   );
 }

@@ -1,0 +1,45 @@
+/* Transactions.css */
+.paget{
+    background: linear-gradient(to bottom, #c91258, rgb(255, 255, 255));
+}
+.transactions {
+    text-align: center;
+    padding: 200px;
+  }
+  
+  .transactions h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .transactions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .transactions li {
+    background-color: #faf6f6;
+
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  
+  .transactions li .listid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .transactions li p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Optional: Hover effect */
+  .transactions li:hover {
+    background-color: rgba(243, 55, 155, 0.5);
+    transition: background-color 0.5s ease-in-out;
+  }
+  

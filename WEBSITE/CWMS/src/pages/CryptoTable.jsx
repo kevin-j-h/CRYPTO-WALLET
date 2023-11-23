@@ -41,13 +41,14 @@ const CryptoTable = () => {
   }, []);
 
   return (
+    <div className='tablebody'>
     <div className="p-4">
       <h1>Crypto Table</h1>
       <table>
         <thead>
           <tr>
-            <th>Cryptoname</th>
-            <th>Cryptoprice</th>
+            <th>Crypto Name</th>
+            <th>Crypto Price</th>
             <th>Marketcap</th>
             <th>Symbol</th>
           </tr>
@@ -63,6 +64,7 @@ const CryptoTable = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };
