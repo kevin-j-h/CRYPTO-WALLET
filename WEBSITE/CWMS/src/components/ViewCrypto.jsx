@@ -1,3 +1,5 @@
+
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../config/supabaseClient';
 import '../styles/viewcrypto.css';
@@ -10,7 +12,7 @@ const ViewCrypto = () => {
     try {
         const { data, error } = await supabase
         .from('cryptocurrency')
-        .select('symbol, cryptoname, cryptoprice')
+        .select('symbol, cryptoname, cryptoprice,marketcap')
         .or(`symbol.ilike.%${searchSymbol}%,cryptoname.ilike.%${searchSymbol}%`);
       
 
@@ -31,7 +33,7 @@ const ViewCrypto = () => {
       try {
         let { data: cryptocurrency, error } = await supabase
           .from('cryptocurrency')
-          .select('symbol, cryptoname, cryptoprice');
+          .select('symbol, cryptoname, cryptoprice,marketcap');
 
         if (error) {
           throw error;
@@ -65,6 +67,7 @@ const ViewCrypto = () => {
             <p>Name: {crypto.cryptoname}</p>
             <p>Symbol: {crypto.symbol}</p>
             <p>Price: ${crypto.cryptoprice}</p>
+            <p>MarketCap: {crypto.marketcap}</p>
           </div>
         ))}
       </div>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {supabase} from '../config/supabaseClient'
 
+// eslint-disable-next-line react/prop-types
 const AdminLogin = ({setToken}) => {
     const navigate =useNavigate();
     const [state, setState] = useState({

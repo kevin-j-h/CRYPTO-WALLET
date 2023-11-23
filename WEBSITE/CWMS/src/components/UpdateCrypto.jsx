@@ -1,100 +1,6 @@
-// import React, { useState, useEffect } from 'react';
-// import { supabase } from '../config/supabaseClient';
-// import '../styles/updatecrypto.css';
 
-// const CryptoUpdate = () => {
-//   const [cryptoUpdate, setCryptoUpdate] = useState({
-//     cryptoid:'',
-//     cryptoname: '',
-//     cryptoprice: '',
+/* eslint-disable no-unused-vars */
 
-    
-//   });
-
-//   const [cryptoList, setCryptoList] = useState([]);
-
-//   useEffect(() => {
-//     async function fetchCryptoList() {
-//       try {
-//         const { data, error } = await supabase
-//           .from('cryptocurrency')
-//           .select('cryptoid, cryptoname, symbol');
-
-//         if (error) {
-//           throw error;
-//         }
-
-//         setCryptoList(data);
-//       } catch (error) {
-//         console.error('Error fetching crypto list:', error.message);
-//       }
-//     }
-
-//     fetchCryptoList();
-//   }, []);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setCryptoUpdate({
-//       ...cryptoUpdate,
-//       cryptoid: value, // assuming 'value' contains the cryptoid
-//       [name]: value
-//     });
-//   };
-  
-
-//   const handleUpdate = async () => {
-//     try {
-//       const { data, error } = await supabase
-//         .from('cryptocurrency')
-//         .update({ cryptoprice: cryptoUpdate.cryptoprice })
-//         .eq('cryptoid', cryptoUpdate.cryptoid)
-//         .select();
-  
-//       if (error) {
-//         throw error;
-//       }
-  
-//       console.log('Cryptocurrency price updated:', data);
-//     } catch (error) {
-//       console.error('Error updating cryptocurrency price:', error.message);
-//     }
-//   };
-
-//   return (
-//     <div className="crypto-update-container">
-//       <h2>Update Cryptocurrency Data</h2>
-//       <div className="update-fields">
-//         <select name="symbol" onChange={handleChange} value={cryptoUpdate.symbol}>
-//           <option value="">Select a cryptocurrency</option>
-//           {cryptoList.map((crypto) => (
-//             <option key={crypto.cryptoid} value={crypto.cryptoid}>
-//               {crypto.cryptoname} - {crypto.symbol}
-//             </option>
-//           ))}
-//         </select>
-//         <input
-//           type="text"
-//           name="cryptoname"
-//           value={cryptoUpdate.cryptoname}
-//           onChange={handleChange}
-//           placeholder="Enter Cryptoname"
-//         />
-//         <input
-//           type="number"
-//           name="cryptoprice"
-//           value={cryptoUpdate.cryptoprice}
-//           onChange={handleChange}
-//           placeholder="Enter Cryptoprice"
-//         />
-        
-//         <button onClick={handleUpdate}>Update</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CryptoUpdate;
 
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../config/supabaseClient';
@@ -103,6 +9,7 @@ const CryptoUpdate = () => {
   const [cryptoUpdate, setCryptoUpdate] = useState({
     cryptoid: '',
     cryptoprice: '',
+    marketcap: '',
   });
 
   const [cryptoList, setCryptoList] = useState([]);
@@ -112,7 +19,7 @@ const CryptoUpdate = () => {
       try {
         const { data, error } = await supabase
           .from('cryptocurrency')
-          .select('cryptoid, cryptoname');
+          .select('cryptoid, cryptoname,marketcap');
 
         if (error) {
           throw error;
@@ -139,7 +46,10 @@ const CryptoUpdate = () => {
     try {
       const { data, error } = await supabase
         .from('cryptocurrency')
-        .update({ cryptoprice: cryptoUpdate.cryptoprice })
+        .update({
+          cryptoprice: cryptoUpdate.cryptoprice,
+          marketcap: cryptoUpdate.marketcap,
+        })
         .eq('cryptoid', cryptoUpdate.cryptoid)
         .select();
 
@@ -147,16 +57,16 @@ const CryptoUpdate = () => {
         throw error;
       }
 
-      console.log('Cryptocurrency price updated:', data);
+      console.log('Cryptocurrency data updated:', data);
     } catch (error) {
-      console.error('Error updating cryptocurrency price:', error.message);
+      console.error('Error updating cryptocurrency data:', error.message);
     }
   };
 
   return (
     <div className="crypto-update-container">
       <h2>Update Cryptocurrency Data</h2>
-      <div className="update-fields" >
+      <div className="update-fields">
         <select name="cryptoid" onChange={handleChange} value={cryptoUpdate.cryptoid}>
           <option value="">Select a cryptocurrency</option>
           {cryptoList.map((crypto) => (
@@ -171,7 +81,13 @@ const CryptoUpdate = () => {
           value={cryptoUpdate.cryptoprice}
           onChange={handleChange}
           placeholder="Enter Cryptoprice"
-          
+        />
+        <input
+          type="text"
+          name="marketcap"
+          value={cryptoUpdate.marketcap}
+          onChange={handleChange}
+          placeholder="Enter Market Cap"
         />
         <button onClick={handleUpdate}>Update</button>
       </div>

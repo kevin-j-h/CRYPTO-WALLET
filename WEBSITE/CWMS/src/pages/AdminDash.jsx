@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/admindash.css'
 import ViewCrypto from '../components/ViewCrypto';
 import UpdateCrypto from '../components/UpdateCrypto'
+import AddCrypto from '../components/AddCrypto';
 
+// eslint-disable-next-line react/prop-types
 const AdminDash = ({token}) => {
   const navigate = useNavigate();
 
@@ -19,12 +21,14 @@ const AdminDash = ({token}) => {
   return (
 <div>
     <header>
-      <nav>
+      <nav style={{position:'fixed',width:'99%'}}>
         <div className="navbar">
           <h1>ADMIN DASHBOARD</h1>
           <div className="nav-links">
-            <a href="#manage-users">Manage Users</a>
+            {/* <a href="#manage-users">Manage Users</a> */}
             <a href="#update-crypto">Update Crypto</a>
+            <a href="#view-crypto">View Crypto</a>
+            <a href="#add-crypto">Add Crypto</a>
             <button id="#logout" onClick={handleLogout}>Logout</button>
           </div>
         </div>
@@ -33,8 +37,11 @@ const AdminDash = ({token}) => {
 <div id="update-crypto" style={{display:'flex',justifyContent:'space-evenly',alignItems:'center',margin:'10% 0 0 0'}}>
   <UpdateCrypto />
 </div>
-<div id="viewcrypto"style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+<div id="view-crypto"style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
   <ViewCrypto />
+</div>
+<div id="add-crypto"style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+  <AddCrypto />
 </div>
 
 </div>
