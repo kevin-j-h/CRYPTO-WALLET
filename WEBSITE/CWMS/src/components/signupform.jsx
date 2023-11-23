@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { supabase } from '../config/supabaseClient';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SignUpForm() {
+  const navigate = useNavigate();
   const [ustate, setUstate] = useState({
     firstname: '',
     lastname:'',
@@ -78,6 +79,7 @@ function SignUpForm() {
     if (error) {
       throw error;
     }
+    navigate('/dashboard', {state: data})
     }catch(error){
 console.error('Error signing up:', error.message);
     }

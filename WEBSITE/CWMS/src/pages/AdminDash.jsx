@@ -6,6 +6,7 @@ import '../styles/admindash.css'
 import ViewCrypto from '../components/ViewCrypto';
 import UpdateCrypto from '../components/UpdateCrypto'
 import AddCrypto from '../components/AddCrypto';
+import DeleteCrypto from '../components/DeleteCrypto';
 
 // eslint-disable-next-line react/prop-types
 const AdminDash = ({token}) => {
@@ -29,6 +30,7 @@ const AdminDash = ({token}) => {
             <a href="#update-crypto">Update Crypto</a>
             <a href="#view-crypto">View Crypto</a>
             <a href="#add-crypto">Add Crypto</a>
+            <a href="#delete-crypto">Delete Crypto</a>
             <button id="#logout" onClick={handleLogout}>Logout</button>
           </div>
         </div>
@@ -43,9 +45,12 @@ const AdminDash = ({token}) => {
 <div id="add-crypto"style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
   <AddCrypto />
 </div>
+<div id="delete-crypto"style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+  <DeleteCrypto />
+</div>
 
 </div>
-    // Other content of the admin dashboard
+  
   
 
 

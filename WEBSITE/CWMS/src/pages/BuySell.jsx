@@ -230,10 +230,39 @@ function CryptoBuySell() {
               });
   
               console.log("Buy operation completed successfully!");
-            } catch (error) {
+            } 
+              catch (error) {
               console.error("Error updating wallet or inserting transaction:", error.message);
             }
           } else {
+            const updatedCryptoHoldings = [...cryptoHoldings, crypto];
+          const updatedCryptoBal = [...cryptoBal, parseInt(amount)];
+          setCryptoHoldings(updatedCryptoHoldings);
+          setCryptoBal(updatedCryptoBal);
+
+          try {
+            await supabase
+              .from("wallet")
+              .update({
+                quantity: updatedCryptoBal,
+                cryptoid: updatedCryptoHoldings,
+                balance: wallet.balance - totalCost
+              })
+              .eq("walletid", wallet.walletid);
+
+            const tId = uuidv4();
+            await supabase.from("transaction").insert({
+              transactionid: tId,
+              timestamp: new Date().toISOString(),
+              amount: amount,
+              walletid: id.walletid,
+              userid: uid
+            });
+
+            console.log("Buy operation completed successfully!");
+          } catch (error) {
+            console.error("Error updating wallet or inserting transaction:", error.message);
+          }
             console.error("The mentioned crypto is not in your holdings!");
           }
         } else {

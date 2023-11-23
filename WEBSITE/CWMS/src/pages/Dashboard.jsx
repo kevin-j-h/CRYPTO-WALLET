@@ -8,9 +8,9 @@ import '../styles/website.css'; // Make sure this path is correct
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
   const id = location.state.user.id;
-  // console.log(id);
+  console.log(id);
   const [userData, setUserData] = useState("");
   const [wallet, setWallet] = useState("")
 
@@ -77,7 +77,7 @@ const Dashboard = () => {
       <header className="header1" style={{position:'fixed',width:"100%"}}>
         <div className="logo">
           <h1 >Crypto X </h1>
-          {/* <Navbar /> </h1> */}
+          <Navbar />
         </div>
       </header>
       <Navbar /> {/* Use Navbar component */}

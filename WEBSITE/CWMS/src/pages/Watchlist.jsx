@@ -126,7 +126,7 @@ const Watchlist = () => {
         };
     
         fetchWatchlistData();
-      }, [id]);
+      }, [id, watchlist]);
 
   useEffect(() => {
     async function fetchCryptoData() {
@@ -186,7 +186,7 @@ const Watchlist = () => {
 
       const { data: updatedWatchlist, error: updatedError } = await supabase
         .from('watchlist')
-        .select('cryptoid, date')
+        .select('cryptoid')
         .order('date', { ascending: false });
 
       if (updatedError) {
@@ -244,9 +244,9 @@ const Watchlist = () => {
           <tbody>
             {cID.map((item) => (
               <tr key={item.cryptoid}>
-                <td>{item.cryptoname}</td>
-                <td>{item.symbol}</td>
-                <td>{item.cryptoprice}</td>
+                <td style={{ color: 'black' }}>{item.cryptoname}</td>
+                <td style={{ color: 'black' }}>{item.symbol}</td>
+                <td style={{ color: 'black' }}>{item.cryptoprice}</td>
               </tr>
             ))}
           </tbody>
