@@ -41,7 +41,7 @@ function Transactions() {
             <li key={transaction.timestamp}>
               <div className="listid">
                 <p>Transaction ID: {transaction.transactionid}</p>
-                <p>Amount: {transaction.amount}</p>
+                <p>Quantity: {transaction.amount}</p>
                 <p>Timestamp: {new Date(transaction.timestamp).toLocaleString()}</p>
               </div>
             </li>
