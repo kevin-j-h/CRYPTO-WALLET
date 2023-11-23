@@ -101,10 +101,10 @@ const Dashboard = () => {
                   <strong>Address:</strong> {wallet.walletid}
                 </p>
               </div>
-              <div className="wallet-actions">
+              {/* <div className="wallet-actions">
                 <p>Send BTC</p>
                 <p>Receive BTC</p>
-              </div>
+              </div> */}
               <br></br>
               <button onClick={()=> navigate('/wallet', {state: wallet})}>View</button>
             </div>
