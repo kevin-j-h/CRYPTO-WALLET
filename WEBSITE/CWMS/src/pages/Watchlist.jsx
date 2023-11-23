@@ -1,6 +1,6 @@
 // import { useEffect, useState } from 'react';
 // import { supabase } from '../config/supabaseClient';
-// import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 // import "../styles/watchlist.css";
 
 // const Watchlist = () => {
@@ -97,9 +97,36 @@ import { supabase } from '../config/supabaseClient';
 import '../styles/watchlist.css';
 
 const Watchlist = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const id = location.state;
   const [cryptos, setCryptos] = useState([]);
   const [selectedCrypto, setSelectedCrypto] = useState('');
   const [watchlist, setWatchlist] = useState([]);
+  const [cID, setCID] = useState([])
+
+  useEffect(() => {
+        const fetchWatchlistData = async () => {
+          try {
+            const { data: watchlistData, error: watchlistError } = await supabase
+              .from('watchlist')
+              .select('cryptoid')
+              .eq('userid', id);
+    
+            if (watchlistError) {
+              console.error('Error fetching watchlist data:', watchlistError.message);
+              return;
+            }
+    
+            const watch = watchlistData[0]?.cryptoid || [];
+            setWatchlist(watch);
+          } catch (error) {
+            console.error('Error in fetchWatchlistData:', error.message);
+          }
+        };
+    
+        fetchWatchlistData();
+      }, [id]);
 
   useEffect(() => {
     async function fetchCryptoData() {
@@ -140,10 +167,13 @@ const Watchlist = () => {
   }, []);
 
   const handleAddToWatchlist = async () => {
+    const oldWatchlist = [...watchlist, selectedCrypto]
+    console.log(oldWatchlist)
     try {
       const { data, error } = await supabase
         .from('watchlist')
-        .insert([{ cryptoid: selectedCrypto }]);
+        .update({ cryptoid: oldWatchlist })
+        .eq('userid', id);
 
       if (error) {
         throw error;
@@ -151,7 +181,9 @@ const Watchlist = () => {
 
       console.log('Crypto added to watchlist:', data);
       // Refresh watchlist data
-      // This could be optimized by manually updating the state instead of re-fetching
+
+      
+
       const { data: updatedWatchlist, error: updatedError } = await supabase
         .from('watchlist')
         .select('cryptoid, date')
@@ -164,6 +196,24 @@ const Watchlist = () => {
       setWatchlist(updatedWatchlist);
     } catch (error) {
       console.error('Error adding crypto to watchlist:', error.message);
+    }
+
+    try {
+      const { data, error } = await supabase
+        .from('cryptocurrency')
+        .select()
+        .in('cryptoid', oldWatchlist);
+  
+      if (error) {
+        throw error;
+      }
+      
+      setCID(data)
+      console.log(data)
+      return data;
+    } catch (error) {
+      console.error('Error fetching cryptocurrency details:', error.message);
+      return null;
     }
   };
 
@@ -189,16 +239,14 @@ const Watchlist = () => {
               <th>Crypto Name</th>
               <th>Symbol</th>
               <th>Crypto Price</th>
-              <th>Watchlist Timestamp</th>
             </tr>
           </thead>
           <tbody>
-            {watchlist.map((item, index) => (
-              <tr key={index}>
-                <td>{/* Fetch crypto details based on item.cryptoid */}</td>
-                <td>{/* Fetch crypto details based on item.cryptoid */}</td>
-                <td>{/* Fetch crypto details based on item.cryptoid */}</td>
-                <td>{item.date}</td>
+            {cID.map((item) => (
+              <tr key={item.cryptoid}>
+                <td>{item.cryptoname}</td>
+                <td>{item.symbol}</td>
+                <td>{item.cryptoprice}</td>
               </tr>
             ))}
           </tbody>
