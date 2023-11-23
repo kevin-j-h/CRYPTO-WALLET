@@ -8,6 +8,8 @@ function CryptoBuySell() {
   const [wallet, setWallet] = useState("");
   const location = useLocation();
   const id = location.state;
+  console.log(id)
+  const uid = id.userid;
   console.log(wallet);
   const [action, setAction] = useState("");
   const [crypto, setCrypto] = useState("");
@@ -40,7 +42,7 @@ function CryptoBuySell() {
         const { data, error } = await supabase
           .from("wallet")
           .select()
-          .eq("userid", id)
+          .eq("userid", uid)
           .single();
         if (error) {
           throw error;
