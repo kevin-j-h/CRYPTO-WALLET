@@ -4,6 +4,7 @@ import { supabase } from "../config/supabaseClient";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';  
 import '../styles/website.css'; // Make sure this path is correct
+import Loading from "../components/loading";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -74,14 +75,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      <header className="header1" style={{position:'fixed',width:"100%"}}>
-        <div className="logo">
-          <h1 >Crypto X </h1>
-          <Navbar />
-        </div>
-      </header>
-      <Navbar /> {/* Use Navbar component */}
-      {id ? (
+      <Navbar/>
+      {userData && wallet ? (
         <div className="container10">
           <section id="hero" className="hero">
             <div className="card">
@@ -152,7 +147,7 @@ const Dashboard = () => {
           </footer>
         </div>
       ) : (
-        <p>Not found</p>
+        <p><Loading /></p>
       )}
     </div>
   );
