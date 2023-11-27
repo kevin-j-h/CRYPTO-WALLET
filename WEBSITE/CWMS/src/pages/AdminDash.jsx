@@ -6,6 +6,7 @@ import UpdateCrypto from '../components/UpdateCrypto';
 import AddCrypto from '../components/AddCrypto';
 import DeleteCrypto from '../components/DeleteCrypto';
 import Loading from '../components/loading';
+import AdminNavbar from '../components/AdminNavbar';
 
 const AdminDash = ({ token }) => {
   const navigate = useNavigate();
@@ -28,37 +29,25 @@ const AdminDash = ({ token }) => {
 
   return (
     <div>
-      <header>
-        <nav style={{ position: 'fixed', width: '99%' }}>
-          <div className="navbar">
-            <h1>ADMIN DASHBOARD</h1>
-            <div className="nav-links">
-              <a href="#update-crypto">Update Crypto</a>
-              <a href="#view-crypto">View Crypto</a>
-              <a href="#add-crypto">Add Crypto</a>
-              <a href="#delete-crypto">Delete Crypto</a>
-              <button id="#logout" onClick={handleLogout}>Logout</button>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <AdminNavbar />
 
       {loading ? (
         <Loading /> // Display loading component when loading is true
       ) : (
         <div className='admin-content'>
-          <div id="update-crypto" style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', margin: '10% 0 0 0' }}>
-            <UpdateCrypto />
-          </div>
-          <div id="view-crypto" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <ViewCrypto />
-          </div>
-          <div id="add-crypto" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div id="add-crypto" style={{marginTop: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <AddCrypto />
           </div>
-          <div id="delete-crypto" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div id="view-crypto" style={{ marginTop: '200px',display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <ViewCrypto />
+          </div>
+          <div id="update-crypto" style={{ marginTop: '500px',display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', margin: '10% 0 0 0' }}>
+            <UpdateCrypto />
+          </div>
+          <div id="delete-crypto" style={{ marginTop: '200px',display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <DeleteCrypto />
           </div>
+        
         </div>
       )}
     </div>
